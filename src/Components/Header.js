@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: '1rem',
   },
   menuButton: {
     marginRight: theme.spacing(2),
