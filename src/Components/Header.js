@@ -7,6 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import { UserContext } from '../Contexts/UserContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     margin: '1rem',
   },
+  left: {
+    right: '24px',
+    position: 'absolute',
+  },
   navbar: {
     background: '#2E3B55',
   },
@@ -38,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
+  const context = React.useContext(UserContext);
 
   return (
     <div className={classes.root}>
@@ -59,8 +65,10 @@ const Header = () => {
               Login
             </Typography>
           </Link>
-
-          <Button color="inherit">Login</Button>
+          <div className={classes.left}>
+            {context.usuario}
+            <Button color="inherit"> Login</Button>
+          </div>
         </Toolbar>
       </AppBar>
     </div>
