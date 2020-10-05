@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   const classes = useStyles();
   const context = React.useContext(UserContext);
+  console.log(context);
 
   return (
     <div className={classes.root}>
@@ -65,8 +66,12 @@ const Header = () => {
               Login
             </Typography>
           </Link>
+          <Link to="/user" className={classes.link}>
+            <Typography variant="h6" className={classes.title}>
+              User
+            </Typography>
+          </Link>
           <div className={classes.left}>
-            {context.usuario}
             <Button color="inherit"> Login</Button>
           </div>
         </Toolbar>

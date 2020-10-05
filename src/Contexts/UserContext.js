@@ -8,10 +8,11 @@ export const UserStorage = ({ children }) => {
   const [login, setLogin] = React.useState(null);
 
   async function getUser(token) {
-    const { url, options } = USER_GET(1);
+    const { url, options } = USER_GET(token);
     const response = await fetch(url, options);
     const json = await response.json();
     setData(json.data);
+    console.log(json.data);
     setLogin(true);
   }
 

@@ -31,8 +31,15 @@ const Login = () => {
         ></Input>
         <Button type="submit">Entrar</Button>
       </form>
-      <Link to="/login/criar">Cadastre-se</Link>
-      <Link to="/login/perdi">Perdeu a senha?</Link>
+      <Link to="/login/perdi">Perdeu a Senha?</Link>
+      <h1>Cadastre-se</h1>
+      <p>Ainda não é cadastrado? Cadastre-se no site.</p>
+
+      <Button>
+        <Link className="link" to="/login/criar">
+          Cadastro
+        </Link>
+      </Button>
     </section>
   );
 };
