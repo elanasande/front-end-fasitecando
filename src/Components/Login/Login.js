@@ -4,12 +4,13 @@ import Button from '../Forms/Button';
 import { Link } from 'react-router-dom';
 import useForm from '../../Hooks/useForm';
 import { UserContext } from '../../Contexts/UserContext';
+import Error from '../Helper/Error';
 
 const Login = () => {
   const email = useForm('email');
   const password = useForm();
 
-  const { userLogin } = React.useContext(UserContext);
+  const { userLogin, error, loading } = React.useContext(UserContext);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -29,7 +30,12 @@ const Login = () => {
           type="password"
           {...password}
         ></Input>
-        <Button type="submit">Entrar</Button>
+        {loading ? (
+          <Button disabled>Carregando...</Button>
+        ) : (
+          <Button type="submit">Entrar</Button>
+        )}
+        <Error error={error && 'Dados incorretos.'} />
       </form>
       <Link to="/login/perdi">Perdeu a Senha?</Link>
       <h1>Cadastre-se</h1>

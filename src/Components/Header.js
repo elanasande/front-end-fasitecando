@@ -43,8 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
-  const context = React.useContext(UserContext);
-  console.log(context);
+  const { data, userLogout, login } = React.useContext(UserContext);
 
   return (
     <div className={classes.root}>
@@ -72,7 +71,17 @@ const Header = () => {
             </Typography>
           </Link>
           <div className={classes.left}>
-            <Button color="inherit"> Login</Button>
+            {data && login === true ? (
+              <Link className="link" to="/">
+                {data.first_name} <button onSubmit={userLogout}>Logout</button>
+              </Link>
+            ) : (
+              <Button color="inherit">
+                <Link className="link" to="/login">
+                  Login / Criar
+                </Link>
+              </Button>
+            )}
           </div>
         </Toolbar>
       </AppBar>

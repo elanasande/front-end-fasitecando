@@ -23,8 +23,8 @@ const UserCard = ({ users, map, user }) => {
   function mapuser() {
     if (map === false) {
       return (
-        <Card>
-          <CardContent key={user.user.id} className={classes.center}>
+        <Card key={user.user.id}>
+          <CardContent className={classes.center}>
             <Typography gutterBottom variant="h5" component="h2">
               {user.user.first_name} {user.user.last_name}
             </Typography>
@@ -44,8 +44,8 @@ const UserCard = ({ users, map, user }) => {
       );
     } else
       return users.users.map((user) => (
-        <Card>
-          <CardContent key={user.id}>
+        <Card key={user.id}>
+          <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {user.first_name} {user.last_name}
             </Typography>

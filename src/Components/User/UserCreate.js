@@ -3,10 +3,13 @@ import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 import useForm from '../../Hooks/useForm';
 import { REGISTER_USER } from '../../api';
+import useFetch from '../../Hooks/useFetch';
+import Error from '../Helper/Error';
 
 const UserCreate = () => {
   const name = useForm();
   const job = useForm();
+  const { loading, error, request } = useFetch();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -16,17 +19,21 @@ const UserCreate = () => {
         job: job.value,
       });
 
-      const response = await fetch(url, options);
-      const json = await response.json();
-      console.log(json);
+      const { response } = await request(url, options);
+      if (response.ok) console.log('ok');
     }
   }
   return (
     <div>
       <form action="" onSubmit={handleSubmit}>
-        <Input id="name" label="Nome" type="text"></Input>
-        <Input id="job" label="Job" type="text"></Input>
-        <Button type="submit">Cadastrar</Button>
+        <Input id="name" label="Nome" type="text" {...name}></Input>
+        <Input id="job" label="Job" type="text" {...job}></Input>
+        {loading ? (
+          <Button disabled>Cadastrando...</Button>
+        ) : (
+          <Button type="submit">Cadastrar</Button>
+        )}
+        <Error error={error} />
       </form>
     </div>
   );

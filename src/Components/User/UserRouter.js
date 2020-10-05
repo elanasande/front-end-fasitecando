@@ -10,9 +10,9 @@ const User = () => {
     <div>
       <Routes>
         <Route path="/" element={<UserList />} />
-        <Route path="create" element={<UserCreate />} />
-        <Route path="delete" element={<UserDelete />} />
-        <Route path="update" element={<UserUpdate />} />
+        <Route path="criar" element={<UserCreate />} />
+        <Route path="deletar" element={<UserDelete />} />
+        <Route path="atualizar" element={<UserUpdate />} />
       </Routes>
     </div>
   );
