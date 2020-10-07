@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  color: #333;
+  --type-first: Helvetica, Arial, sans-serif;
+  --type-second: 'Spectral', Georgia;
+  font-family: var(--type-first);
+}
+.routes {
+  top: 4rem;
+  margin-top: 16px;
+  padding-top: 4rem;
+}
+.container {
+  max-width: 50rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+.link {
+  text-decoration: none;
+  color: #fff;
+}
